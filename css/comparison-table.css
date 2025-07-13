@@ -1,0 +1,523 @@
+/* Comparison Section */
+.comparison {
+    padding: 80px 0 40px 0; 
+    background: linear-gradient(180deg, #e8f4fd 0%, #f0f7ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/*
+Background Image Effect
+*/
+.comparison::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: url('images/city-skyline.png') no-repeat bottom center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.comparison .container {
+    position: relative;
+    z-index: 1;
+}
+
+/*
+Header
+*/
+.comparison-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.comparison-header .section-title {
+    color: #1a1a1a;
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: none;
+}
+
+.section-subtitle-en {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+    text-transform: uppercase;
+    color: #666;
+}
+
+/*
+比較テーブルラッパー
+*/
+.comparison-table-wrapper {
+    background: transparent !important;
+    border: none !important;
+    overflow: hidden;
+    box-shadow: none !important;
+    margin-bottom: 40px;
+}
+
+/*
+テーブル全体
+*/
+.comparison-table {
+    width: 100%;
+    border: none !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: var(--font-primary), var(--font-japanese);
+    text-align: center;
+    table-layout: fixed;
+}
+
+/*
+ヘッダー行
+*/
+.comparison-table thead tr {
+    background: transparent !important;
+    border: none !important;
+}
+
+.comparison-table th {
+    padding: 0;
+    text-align: center !important;
+    vertical-align: bottom;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* 左上の空セル */
+.empty-cell {
+    width: 15%;
+    background: linear-gradient(180deg, #e8f4fd 0%, #f0f7ff 100%) !important;
+    border: none !important;
+    opacity: 1 !important;
+}
+
+/*
+会社ヘッダー列
+*/
+.company-col {
+    padding: 0 !important;
+    border: none !important;
+    position: relative;
+}
+
+/*
+スグカク列の幅を1.2倍に
+*/
+.company-col.sugukaku {
+    width: 32% !important;
+}
+
+.company-col.competitor {
+    width: 24% !important;
+}
+
+.company-col.inhouse {
+    width: 24% !important;
+}
+
+/* 会社ヘッダー */
+.company-header {
+    padding: 15px 20px;
+    text-align: center !important;
+    border: none !important;
+    border-radius: 15px 15px 0 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* スグカク列を高くする */
+.company-col.sugukaku .company-header {
+    background: #ff9500;
+    padding: 25px 20px;
+    margin-top: -5px;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(255, 149, 0, 0.2);
+    border-radius: 20px 20px 0 0;
+}
+
+.company-col.competitor .company-header {
+    background: #6c757d;
+    padding: 15px 20px;
+}
+
+.company-col.inhouse .company-header {
+    background: #6c757d;
+    padding: 15px 20px;
+}
+
+.company-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: white !important;
+    text-align: center !important;
+}
+
+/*
+テーブルボディ
+*/
+.comparison-table tbody tr {
+    border: none !important;
+    position: relative;
+}
+
+.comparison-table td {
+    padding: 10px 20px;
+    text-align: center !important;
+    vertical-align: middle !important;
+    border: none !important;
+    position: relative;
+}
+
+/*
+左端の機能ラベル
+*/
+.feature-label {
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    width: 10%;
+    text-align: center !important;
+    vertical-align: middle !important;
+    position: relative;
+    padding: 10px 20px;
+}
+
+.feature-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: white;
+}
+
+/*
+最後の機能ラベルは下線なし
+*/
+.comparison-table tbody tr:last-child .feature-label::after {
+    display: none;
+}
+
+/*
+データセル
+*/
+.sugukaku-data {
+    background: #fff5e6 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    width: 32% !important;
+    position: relative;
+    border-left: 2px solid #ff9500 !important;
+    border-right: 2px solid #ff9500 !important;
+}
+
+.competitor-data {
+    background: #f5f5f5;
+    text-align: center !important;
+    vertical-align: middle !important;
+    width: 24% !important;
+    position: relative;
+}
+
+.inhouse-data {
+    background: #f5f5f5;
+    text-align: center !important;
+    vertical-align: middle !important;
+    width: 24% !important;
+    position: relative;
+}
+
+/*
+データセルの下に薄緑色の線を追加
+*/
+.sugukaku-data::after,
+.competitor-data::after,
+.inhouse-data::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e8f4fd;
+}
+
+/*
+最後の行のデータセルは下線なし
+*/
+.comparison-table tbody tr:last-child .sugukaku-data::after,
+.comparison-table tbody tr:last-child .competitor-data::after,
+.comparison-table tbody tr:last-child .inhouse-data::after {
+    display: none;
+}
+
+/* 最後の行のスグカク列に下のボーダーを追加 */
+.comparison-table tbody tr:last-child .sugukaku-data {
+    background: #fff5e6 !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    width: 32% !important;
+    position: relative;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/*
+データコンテンツ
+*/
+.data-content {
+    text-align: center !important;
+    width: 100%;
+    height: 100%;
+}
+
+.data-content p {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center !important;
+}
+
+/*
+ハイライト
+*/
+.highlight-pink {
+    color: #ff6b00;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/*
+すべての枠線を削除
+*/
+.comparison-table,
+.comparison-table * {
+    outline: none !important;
+}
+
+/*
+モバイル用カード
+*/
+.comparison-cards-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 25px; /* カード間の隙間を追加 */
+    margin-top: 40px;
+    padding: 0 10px; /* 左右にパディングを追加 */
+}
+
+.comparison-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px; /* 下マージンを追加 */
+}
+
+.comparison-card.sugukaku-card {
+    background: #fff5e6;
+    border: 2px solid #ff9500;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 149, 0, 0.2);
+    margin-bottom: 25px; /* スグカクカードは少し大きめの下マージン */
+}
+
+.comparison-card:last-child {
+    margin-bottom: 0;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.sugukaku-card .card-header h3 {
+    color: #ff9500;
+}
+
+.card-header p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.card-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.feature-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.feature-row:last-child {
+    border-bottom: none;
+}
+
+.feature-row .label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    flex-shrink: 0;
+    width: 80px;
+}
+
+.feature-row .value {
+    font-weight: 400;
+    color: #666;
+    font-size: 14px;
+    text-align: right;
+    flex: 1;
+}
+
+.feature-row .value.highlight {
+    color: #ff6b00;
+    font-weight: 700;
+}
+
+.card-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    background: #ff9500;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.card-cta:hover {
+    background: #ff8c00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
+}
+
+/*
+レスポンシブ対応
+*/
+@media (max-width: 1024px) {
+    .comparison-table {
+        font-size: 14px;
+    }
+
+    .company-header h3 {
+        font-size: 16px;
+    }
+
+    .feature-label {
+        font-size: 14px;
+    }
+
+    .data-content p {
+        font-size: 14px;
+    }
+
+    .highlight-pink {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison {
+        padding: 60px 0;
+    }
+
+    .comparison-header {
+        margin-bottom: 30px; /* ヘッダーの下マージンを増加 */
+    }
+
+    .comparison-header .section-title {
+        font-size: 36px;
+    }
+
+    /* デスクトップ版テーブルを完全に非表示 */
+    .comparison-table-wrapper {
+        display: none !important;
+    
+
+    /* モバイル版カードを表示 */
+    .comparison-cards-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 25px; /* カード間の隙間 */
+        margin-top: 30px;
+        padding: 0 15px; /* 左右のパディング */
+    }
+}
+
+@media (max-width: 480px) {
+    .comparison {
+        padding: 40px 0;
+    }
+
+    .comparison-header .section-title {
+        font-size: 28px;
+    }
+
+    .section-subtitle-en {
+        font-size: 14px;
+    }
+
+    .comparison-cards-mobile {
+        gap: 20px; /* スマホではもう少し狭く */
+        margin-top: 25px;
+        padding: 0 10px; /* スマホでは左右のパディングを少し狭く */
+    }
+
+    .comparison-card {
+        padding: 20px;
+        margin-bottom: 15px; /* スマホでは下マージンを少し狭く */
+    }
+
+    .card-header h3 {
+        font-size: 18px;
+    }
+
+    .card-features {
+        gap: 12px;
+    }
+
+    .feature-row {
+        padding: 8px 0;
+    }
+}

@@ -1,0 +1,1820 @@
+/* Client Logos Section */
+.client-logos {
+    padding: 60px 0;
+    background: #f8fafc;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.client-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.client-title {
+    font-family: var(--font-display), var(--font-japanese);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.client-subtitle {
+    font-family: var(--font-primary), var(--font-japanese);
+    font-size: 16px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.highlight-number {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--primary-blue);
+    margin: 0 10px;
+}
+
+.client-logos-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.client-logos-wrapper::before,
+.client-logos-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.client-logos-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.client-logos-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc, transparent);
+}
+
+.client-logos-slider {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.client-logos-track {
+    display: inline-flex;
+    animation: scroll-logos 40s linear infinite;
+    gap: 60px;
+    align-items: center;
+}
+
+.client-logos-track img {
+    height: 60px;
+    width: auto;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: all 0.3s;
+}
+
+.client-logos-track img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+@keyframes scroll-logos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.client-industries {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.industry-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-family: var(--font-primary), var(--font-japanese);
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.industry-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-color: #2563eb;
+}
+
+.industry-icon {
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.industry-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.industry-item span {
+    white-space: nowrap;
+}
+
+/* Problem Section */
+.problem {
+    padding: 80px 0;
+    background: var(--bg-light);
+}
+
+.problem-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.problem-card {
+    background: var(--bg-white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.problem-card:hover {
+    border-color: var(--accent-orange);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.problem-icon {
+    margin-bottom: 20px;
+}
+
+.problem-icon img {
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+    background: #fff3e0;
+    border-radius: 20px;
+}
+
+.problem-card h3 {
+    font-family: var(--font-display), var(--font-japanese);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}
+
+.problem-card p {
+    font-family: var(--font-primary), var(--font-japanese);
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+/* Solution Section */
+.solution {
+    padding: 80px 0;
+    background: var(--bg-white);
+}
+
+.solution-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.solution-content {
+    display: flex;
+    align-items: stretch;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.solution-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: calc(4 * 100px + 3 * 20px);
+}
+
+.solution-image .image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.solution-image img,
+.solution-image .speed-clock {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.solution-points {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.solution-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-height: 100px; /* heightからmin-heightに変更 */
+    box-sizing: border-box; /* ボックスサイジングを追加 */
+}
+
+.solution-point:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.solution-point.active {
+    border-color: #2563eb;
+    background: #f8faff;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+}
+
+.point-number {
+    background: #2563eb;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px; /* 少し上に調整 */
+}
+
+.solution-point.active .point-number {
+    background: #1d4ed8;
+}
+
+.point-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* centerからflex-startに変更 */
+    min-width: 0; /* フレックスアイテムの最小幅を0に設定 */
+    word-wrap: break-word; /* 長い単語の改行を許可 */
+    overflow-wrap: break-word; /* 単語の途中での改行を許可 */
+}
+
+.point-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+    line-height: 1.3; /* 行間を調整 */
+    word-wrap: break-word; /* 長い単語の改行を許可 */
+}
+
+.point-content p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.9rem; /* フォントサイズを少し小さく */
+    word-wrap: break-word; /* 長い単語の改行を許可 */
+    overflow-wrap: break-word; /* 単語の途中での改行を許可 */
+}
+
+.solution-point.active .point-content h3 {
+    color: #2563eb;
+}
+
+/* Service Section */
+.service {
+    padding: 80px 0;
+    background: var(--bg-light);
+}
+
+.service-tabs {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background: var(--bg-white);
+    border: 2px solid var(--border-light);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: var(--font-primary), var(--font-japanese);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-gray);
+}
+
+.tab-button:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.tab-button.active {
+    background: var(--primary-blue);
+    color: var(--bg-white);
+    border-color: var(--primary-blue);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    background: var(--bg-white);
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px var(--shadow-light);
+}
+
+.tab-text {
+    order: 1;
+}
+
+.tab-text h3 {
+    font-family: var(--font-display), var(--font-japanese);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}
+
+.tab-text p {
+    font-family: var(--font-primary), var(--font-japanese);
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+}
+
+.check-list {
+    list-style: none;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-family: var(--font-primary), var(--font-japanese);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background: var(--accent-orange);
+    color: var(--bg-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tab-image {
+    order: 2;
+}
+
+.tab-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px var(--shadow-medium);
+}
+
+/* Customer Voice Section */
+.customer-voice {
+    padding: 80px 0;
+    background: var(--bg-white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.voice-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.voice-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.voice-card-large {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.voice-card-large:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px var(--shadow-medium);
+    border-color: var(--primary-blue);
+}
+
+.voice-header {
+    margin-bottom: 20px;
+}
+
+.voice-info {
+    flex: 1;
+}
+
+.voice-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.voice-info p {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.voice-results {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.voice-result-item {
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    padding: 8px 4px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-radius: 12px;
+    border: 1px solid #93c5fd;
+}
+
+.voice-result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+}
+
+.voice-result-label {
+    display: block;
+    font-size: 11px;
+    color: #1e40af;
+    margin-bottom: 2px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.voice-result-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e40af;
+    line-height: 1.0;
+}
+
+.voice-comment {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #374151;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+    font-style: italic;
+}
+
+.voice-performance {
+    margin-top: 20px;
+}
+
+.performance-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.performance-card {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+}
+
+.performance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+.performance-value {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.performance-value.blue { color: #3b82f6; }
+.performance-value.purple { color: #8b5cf6; }
+.performance-value.green { color: #10b981; }
+.performance-value.orange { color: #f59e0b; }
+
+.performance-label {
+    font-size: 10px;
+    color: #6b7280;
+    font-weight: 600;
+    line-height: 1.2;
+    word-break: keep-all;
+}
+
+.performance-graph img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0;
+}
+
+/* Industry Modal */
+.industry-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* フレックスボックスで中央配置 */
+    display: none; /* 初期状態 */
+    align-items: center;
+    justify-content: center;
+}
+
+/* モーダルが開いた時のスタイル */
+.industry-modal[style*="display: block"] {
+    display: flex !important; /* flexに変更 */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20px; /* 画面端からの余白 */
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.modal-close {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.modal-body {
+    padding: 30px;
+    line-height: 1.8;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modal-body p {
+    font-size: 16px;
+    color: #374151;
+    margin: 0;
+}
+
+/* スクロールバーのスタイリング */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10px; /* モバイルでは余白を小さく */
+        width: calc(100% - 20px); /* 左右10pxずつの余白 */
+        max-height: calc(100vh - 20px); /* 上下の余白分を引く */
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 18px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-close {
+        font-size: 20px;
+    }
+}
+
+/* 小さい画面用の追加調整 */
+@media (max-height: 600px) {
+    .modal-content {
+        max-height: calc(100vh - 20px);
+    }
+    
+    .modal-header {
+        padding: 12px 16px;
+    }
+    
+    .modal-body {
+        padding: 16px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 24時間クロックアニメーション */
+.speed-clock {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+}
+
+.hours-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.clock-progress svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.clock-progress circle:first-child {
+    stroke: #fed7aa;
+    stroke-width: 12;
+    fill: none;
+}
+
+.progress-line {
+    stroke: #f97316;
+    stroke-width: 12;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 502.65;
+    stroke-dashoffset: 502.65;
+    transition: stroke-dashoffset 3s ease-in-out;
+}
+
+.arrow-tip {
+    fill: #f97316;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transform-origin: center;
+}
+
+.hours-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.hours-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+}
+
+.hours-label {
+    font-size: 1rem;
+    color: #666;
+    text-transform: lowercase;
+    margin-top: -5px;
+}
+
+/* 24時間タイマーアニメーション */
+.speed-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.timer-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.timer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.timer-number {
+    font-size: 72px;
+    font-weight: bold;
+    color: #f97316;
+    line-height: 1;
+    animation: pulseNumber 2s ease-in-out infinite;
+}
+
+.timer-text {
+    font-size: 24px;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: -5px;
+}
+
+.timer-subtext {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* タイマープログレスアニメーション */
+@keyframes timerProgress {
+    0% {
+        stroke-dashoffset: 754;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes pulseNumber {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* 時計の針 */
+.clock-hands {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.hour-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 60px;
+    background: #1e293b;
+    transform-origin: center bottom;
+    transform: translate(-50%, -100%) rotate(0deg);
+    animation: rotateHour 4s linear infinite;
+    border-radius: 2px;
+}
+
+.minute-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 80px;
+    background: #475569;
+    transform-origin: center bottom;
+    transform: translate(-50%, -100%) rotate(0deg);
+    animation: rotateMinute 2s linear infinite;
+    border-radius: 2px;
+}
+
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #f97316;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+@keyframes rotateHour {
+    0% {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+@keyframes rotateMinute {
+    0% {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+/* アニメーションがアクティブな時 */
+.speed-timer.active .timer-progress {
+    animation: timerProgress 3s ease-out forwards;
+}
+
+.speed-timer.active .timer-number {
+    animation: pulseNumber 2s ease-in-out infinite;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.solution-img {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.solution-img.active {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* 初期表示の画像 */
+#price-comparison-chart {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =================================================================
+   RESPONSIVE STYLES - すべてのレスポンシブ対応をここにまとめる
+   ================================================================= */
+
+/* Large Desktop (1200px以上) */
+@media (min-width: 1200px) {
+    .performance-graph {
+        padding: 15px 30px;
+    }
+    
+    .performance-graph img {
+        max-height: 400px;
+    }
+}
+
+/* Desktop (1024px-1199px) */
+@media (max-width: 1199px) {
+    .voice-cards-grid {
+        gap: 25px;
+    }
+    
+    .voice-card-large {
+        padding: 20px;
+    }
+    
+    .voice-info h3 {
+        font-size: 18px;
+    }
+    
+    .voice-result-value {
+        font-size: 16px;
+    }
+    
+    .voice-comment {
+        font-size: 13px;
+        padding: 14px;
+    }
+
+    .voice-result-item {
+        padding: 5px 3px;
+    }
+
+    .voice-result-label {
+        margin-bottom: 1px;
+    }
+
+    .solution-content {
+        gap: 40px; /* ギャップを狭める */
+    }
+    
+    .solution-point {
+        padding: 20px; /* パディングを小さく */
+        gap: 15px; /* 内部ギャップを小さく */
+    }
+    
+    .point-content h3 {
+        font-size: 1.1rem; /* フォントサイズを小さく */
+    }
+    
+    .point-content p {
+        font-size: 0.85rem; /* フォントサイズを小さく */
+    }
+
+}
+
+/* Tablet (768px-1023px) */
+@media (max-width: 1023px) {
+    .voice-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .voice-column {
+        gap: 25px;
+    }
+
+    .problem-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .solution-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .solution-image {
+        order: 2;
+        max-width: 600px;
+        margin: 0 auto;
+        min-height: 300px;
+    }
+    
+    .solution-points {
+        order: 1;
+    }
+
+    .solution-point {
+        min-height: auto; /* タブレットでは高さ制限を解除 */
+    }
+
+    .tab-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .tab-image {
+        order: 2;
+    }
+
+    .performance-cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .performance-card {
+        padding: 10px 6px;
+    }
+
+    .performance-value {
+        font-size: 14px;
+    }
+
+    .performance-label {
+        font-size: 9px;
+    }
+    
+    .performance-graph {
+        padding: 10px 20px;
+    }
+    
+    .performance-graph img {
+        max-height: 300px;
+    }
+}
+
+/* Mobile Large (480px-767px) */
+@media (max-width: 767px) {
+    .client-title {
+        font-size: 28px;
+    }
+
+    .highlight-number {
+        font-size: 36px;
+    }
+
+    .client-logos-track {
+        gap: 40px;
+    }
+
+    .client-logos-track img {
+        height: 40px;
+    }
+
+    .client-industries {
+        gap: 20px;
+    }
+
+    .problem-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .solution-image {
+        order: -1;
+        margin-bottom: 30px;
+        min-height: 250px;
+    }
+    
+    .solution-points {
+        gap: 15px;
+    }
+    
+    .solution-point {
+        padding: 20px;
+        min-height: auto; /* モバイルでは高さ制限を解除 */
+        gap: 15px;
+    }
+    
+    .point-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+    
+    .point-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .point-content p {
+        font-size: 0.9rem;
+    }
+
+    .tab-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-inner {
+        padding: 40px 30px;
+    }
+
+    .tab-text h3 {
+        font-size: 28px;
+    }
+
+    .voice-cards-grid {
+        gap: 20px;
+    }
+
+    .voice-card-large {
+        padding: 16px;
+    }
+
+    .voice-info h3 {
+        font-size: 28px;
+    }
+    
+    .voice-info p {
+        font-size: 15px;
+    }
+
+    .voice-results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-bottom: 20px;
+    }
+
+    .voice-result-item {
+        min-width: auto;
+        padding: 6px 4px;
+        text-align: center;
+    }
+
+    .voice-result-value {
+        font-size: 24px;
+        line-height: 1.0;
+    }
+
+    .voice-result-label {
+        font-size: 16px;
+        margin-bottom: 1px;
+        line-height: 1.1;
+    }
+
+    .voice-performance {
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .voice-comment {
+        font-size: 12px;
+        padding: 12px;
+    }
+
+    .performance-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .performance-card {
+        padding: 6px 4px;
+    }
+    
+    .performance-value {
+        font-size: 16px;
+    }
+    
+    .performance-label {
+        font-size: 10px;
+    }
+
+    .performance-graph {
+        padding: 12px;
+    }
+    
+    .performance-graph img {
+        max-height: 250px;
+    }
+
+    .speed-clock {
+        width: 100%;
+        max-width: 350px;
+        height: 250px;
+    }
+    
+    .hours-circle {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .hours-number {
+        font-size: 2.5rem;
+    }
+
+    .client-industries {
+        gap: 10px;
+    }
+    
+    .industry-item {
+        padding: 10px 12px;
+    }
+    
+    .industry-item span {
+        font-size: 12px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 18px;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-body p {
+        font-size: 14px;
+    }
+}
+
+/* Mobile Small (360px-479px) */
+@media (max-width: 479px) {
+    .client-logos,
+    .problem,
+    .solution,
+    .service,
+    .customer-voice {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .section-subtitle {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .solution-content {
+        gap: 20px;
+    }
+
+    .solution-image {
+        min-height: 200px;
+    }
+
+    .problem-card {
+        padding: 30px 20px;
+        min-height: auto;
+    }
+
+    .solution-point {
+        padding: 15px;
+        gap: 12px;
+    }
+    
+    .point-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.75rem;
+    }
+    
+    .point-content h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+    
+    .point-content p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .tab-inner {
+        padding: 30px 20px;
+    }
+
+    .voice-card-large {
+        padding: 20px;
+    }
+
+    .voice-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .voice-info h3 {
+        font-size: 24px;
+    }
+    
+    .voice-info p {
+        font-size: 14px;
+    }
+
+    .voice-results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+    }
+
+    .voice-result-item {
+        min-width: auto;
+        padding: 5px 3px;
+    }
+
+    .voice-result-value {
+        font-size: 22px;
+    }
+
+    .voice-result-label {
+        font-size: 14px;
+    }
+
+    .voice-performance {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .voice-comment {
+        margin-bottom: 12px;
+        padding: 15px;
+    }
+
+    .performance-card {
+        padding: 5px 3px;
+    }
+
+    .performance-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .performance-value {
+        font-size: 15px;
+        padding: 0px 15px;
+    }
+    
+    .performance-label {
+        font-size: 9px;
+        padding: 0px 15px;
+    }
+    
+    .performance-graph {
+        padding: 10px;
+    }
+    
+    .performance-graph img {
+        max-height: 200px;
+    }
+
+    .speed-clock {
+        width: 100%;
+        max-width: 280px;
+        height: 200px;
+    }
+    
+    .hours-circle {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .hours-number {
+        font-size: 2rem;
+    }
+    
+    .hours-label {
+        font-size: 0.9rem;
+    }
+
+    /* 料金プランの機能リスト */
+    .price-features {
+        padding: 0 !important;
+        margin: 25px 0 !important;
+        list-style: none !important;
+    }
+    
+    .price-features li {
+        display: block !important;
+        position: relative !important;
+        padding: 15px 0 15px 45px !important;
+        margin: 0 !important;
+        text-indent: 0 !important;
+        line-height: 1.5 !important;
+        min-height: 24px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    .price-features li::before {
+        content: "✓" !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 15px !important;
+        color: #fbbf24 !important;
+        font-weight: bold !important;
+        font-size: 1.2rem !important;
+        width: 24px !important;
+        height: 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(251, 191, 36, 0.2) !important;
+        border-radius: 50% !important;
+        flex-shrink: 0 !important;
+        z-index: 1 !important;
+    }
+    
+    .price-features li.disabled {
+        opacity: 0.6 !important;
+        color: #9ca3af !important;
+    }
+
+    .price-features li.disabled::before {
+        content: "✗" !important;
+        color: #ef4444 !important;
+        background: rgba(239, 68, 68, 0.2) !important;
+    }
+    
+    .price-features li > span,
+    .price-features li > div {
+        display: block !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Mobile Extra Small (360px以下) */
+@media (max-width: 360px) {
+    .price-features li {
+        padding: 12px 0 12px 40px !important;
+    }
+    
+    .price-features li::before {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 1rem !important;
+        top: 12px !important;
+    }
+}
+
+/* SVGグラフのスタイル調整 */
+#cost-comparison-chart {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    #cost-comparison-chart {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 479px) {
+    #cost-comparison-chart {
+        max-height: 250px;
+    }
+}
+
+/* Solution image fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 初期状態 */
+#cost-comparison-chart,
+#speed-clock,
+#solution-image {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: none;
+}
+
+/* activeクラスが付いたときのアニメーション */
+#cost-comparison-chart.active,
+#speed-clock.active,
+#solution-image.active {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* 初回表示の画像は即座に表示 */
+#cost-comparison-chart {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 24時間タイマーのスタイル */
+.speed-clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* 24時間タイマーアニメーション */
+.speed-clock {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.speed-clock.active {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.timer-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.timer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.timer-number {
+    font-size: 72px;
+    font-weight: bold;
+    color: #f97316;
+    line-height: 1;
+}
+
+.timer-text {
+    font-size: 24px;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: -5px;
+}
+
+.timer-subtext {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* タイマープログレスアニメーション */
+@keyframes timerProgress {
+    0% {
+        stroke-dashoffset: 754;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes pulseNumber {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* 時計の針 */
+.clock-hands {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.hour-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 60px;
+    background: #1e293b;
+    transform-origin: center bottom;
+    transform: translate(-50%, -100%) rotate(0deg);
+    border-radius: 2px;
+}
+
+.minute-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 80px;
+    background: #475569;
+    transform-origin: center bottom;
+    transform: translate(-50%, -100%) rotate(0deg);
+    border-radius: 2px;
+}
+
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #f97316;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+@keyframes rotateHour {
+    0% {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+@keyframes rotateMinute {
+    0% {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+/* アニメーションクラス */
+.timer-progress.animate {
+    animation: timerProgress 3s ease-out forwards;
+}
+
+.hour-hand.animate {
+    animation: rotateHour 4s linear infinite;
+}
+
+.minute-hand.animate {
+    animation: rotateMinute 2s linear infinite;
+}
+
+.timer-number.animate {
+    animation: pulseNumber 2s ease-in-out infinite;
+}

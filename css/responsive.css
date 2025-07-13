@@ -1,0 +1,739 @@
+/* ==========================================================================
+   レスポンシブデザイン
+   ========================================================================== */
+
+/* タブレット・スマホ共通 */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* ヒーローセクション調整 */
+    .hero-features {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .hero-feature-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
+    }
+    
+    .hero-trust-indicators {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* 比較表をカード形式に */
+    .comparison-table-wrapper {
+        display: none;
+    }
+    
+    .comparison-cards-mobile {
+        display: block;
+    }
+    
+    /* サービスタブ */
+    .tab-inner {
+        flex-direction: column;
+    }
+    
+    .tab-text {
+        margin-bottom: 20px;
+    }
+    
+    /* お客様の声 */
+    .voice-cards-grid {
+        display: block;
+    }
+    
+    .voice-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .performance-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* スマホ用スタイル */
+@media (max-width: 480px) {
+    /* ヘッダー修正 */
+    .header-content {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* デスクトップ用ナビゲーションを非表示 */
+    .header-nav {
+        display: none;
+    }
+    
+    /* デスクトップ用CTAボタンを非表示 */
+    .header-cta {
+        display: none;
+    }
+    
+    /* モバイルメニューボタンを表示 */
+    .mobile-menu-button {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #333;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+    }
+    
+    /* モバイルメニューオーバーレイ */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: none;
+    }
+    
+    .mobile-menu-overlay.active {
+        display: block;
+    }
+    
+    /* モバイルメニュー */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100%;
+        background: white;
+        z-index: 1001;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+        right: 0;
+    }
+    
+    .mobile-menu-header {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+    }
+    
+    .mobile-menu-nav {
+        padding: 20px 0;
+    }
+    
+    .mobile-menu-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .mobile-menu-nav li {
+        border-bottom: 1px solid #eee;
+    }
+    
+    .mobile-menu-nav a {
+        display: block;
+        padding: 15px 20px;
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .mobile-menu-nav a:hover {
+        background: #f8f9fa;
+        color: #2563eb;
+    }
+    
+    .mobile-menu-cta {
+        padding: 20px;
+        border-top: 1px solid #eee;
+    }
+    
+    .mobile-menu-cta .header-button {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        background: #2563eb;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    /* ヒーローセクション */
+    .hero {
+        padding: 4rem 0 2rem; /* 上下のパディングを縮小 */
+    }
+
+    .hero-content {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem; /* 要素間の間隔を縮小 */
+    }
+    
+    .hero-badge {
+        margin-bottom: 1rem; /* 下マージンを縮小 */
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 1rem; /* 下マージンを縮小 */
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 0.5rem; /* 下マージンを縮小 */
+    }
+
+    .hero-description {
+        text-align: center;
+        margin-bottom: 1.5rem; /* 下マージンを縮小 */
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        margin: 1.5rem 0; /* 上下マージンを縮小 */
+    }
+    
+    .hero-feature-item {
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        justify-content: center; /* 追加 */
+        text-align: center; /* 追加 */
+        width: 100%; /* 追加 */
+        max-width: 280px; /* 追加 */
+    }
+    
+    .hero-feature-item h3 {
+        font-size: 1rem;
+        margin: 0;
+        text-align: center; /* 追加 */
+    }
+
+    .hero-stats {
+        text-align: center;
+        margin: 1.5rem 0; /* 上下マージンを縮小 */
+    }
+
+    .hero-stats-text {
+        text-align: center; /* 追加 */
+    }
+    
+    .hero-cta {
+        text-align: center;
+        margin: 1.5rem 0; /* 上下マージンを縮小 */
+    }
+    
+    .hero-trust-indicators {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin: 1rem 0 0.5rem; /* 上下マージンを大幅に縮小 */
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    .trust-item {
+        flex: 1; /* 均等な幅 */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 0 5px; /* 左右にパディング */
+    }
+
+    .trust-item .trust-icon {
+        width: 16px; /* アイコンサイズを小さく */
+        height: 16px;
+        flex-shrink: 0;
+    }
+    
+    .trust-item p {
+        margin: 0;
+        text-align: center;
+        font-size: 0.8rem; /* フォントサイズを小さく */
+        line-height: 1.2;
+    }
+    
+    .trust-item strong {
+        display: block;
+        font-size: 0.9rem; /* 数値部分を少し大きく */
+        font-weight: 700;
+        color: #fbbf24; /* 黄色でハイライト */
+    }
+
+    
+    /* 問題セクション */
+    .problem-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* ソリューションセクション */
+    .solution-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .solution-image {
+        order: -1;
+        margin-bottom: 20px;
+        min-height: 200px; /* 高さを確保 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .solution-points {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .solution-point {
+        min-height: 60px; /* 各ポイントの最小高さ */
+        padding: 15px;
+    }
+    
+    /* サービスセクション */
+    .tab-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .tab-button {
+        flex: 1;
+        min-width: calc(50% - 5px);
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    /* 料金プラン */
+    .price {
+        padding: 3rem 0;
+    }
+
+    .price-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .price-card {
+        max-width: none;
+        padding: 25px 20px;
+    }
+    
+    .price-features {
+        margin: 25px 0 !important; /* 上下マージンを増やす */
+    }
+    
+    .price-features li {
+        margin-bottom: 8px; /* 項目間の余白 */
+    }
+    
+    .price-features li::before {
+        content: "✓";
+        color: #22c55e;
+        font-weight: bold;
+        font-size: 1rem;
+        flex-shrink: 0; /* チェックマークの縮小を防ぐ */
+        width: 16px; /* 固定幅を設定 */
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px; /* 少し上に調整 */
+    }
+    
+    .price-features li.disabled {
+        color: #9ca3af;
+        opacity: 0.6;
+    }
+    
+    .price-features li.disabled::before {
+        content: "✗";
+        color: #ef4444;
+    }
+    
+    /* プロセス */
+    .process-steps {
+        flex-direction: column;
+        gap: 15px; /* 20px から 15px に縮小 */
+        align-items: center; /* 中央揃えを追加 */
+    }
+
+    .process-step {
+        width: 100%; /* 幅を統一 */
+        max-width: 300px; /* 最大幅を設定 */
+        min-height: 140px; /* 最小高さを設定してカードサイズを統一 */
+        padding: 20px; /* パディングを統一 */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; /* 中央配置 */
+    }
+
+    .process-step .step-number {
+        margin-bottom: 10px; /* 下マージンを統一 */
+        font-size: 0.9rem; /* フォントサイズを統一 */
+    }
+
+    .process-step h3 {
+        font-size: 1.2rem; /* フォントサイズを統一 */
+        margin-bottom: 8px; /* 下マージンを統一 */
+        line-height: 1.3;
+    }
+
+    .process-step p {
+        font-size: 0.9rem; /* フォントサイズを統一 */
+        line-height: 1.4;
+        margin: 0; /* マージンをリセット */
+    }
+    
+    .process-arrow {
+        transform: rotate(90deg);
+        margin: 8px 0; /* 10px から 8px に縮小 */
+        font-size: 1.2rem; /* 矢印のサイズを調整 */
+    }
+    
+    /* フォーム */
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    
+    .contact-info {
+        margin-bottom: 30px;
+    }
+    
+    .download-content {
+        flex-direction: column;
+    }
+    
+    .download-text {
+        margin-bottom: 30px;
+    }
+    
+    /* フッター */
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* その他のセクション調整 */
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* クライアントロゴ */
+    .client-industries {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .industry-item {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 30px 0 20px;
+        background: #2563eb !important;
+        color: white !important;
+        text-align: center; /* フッター全体を中央揃え */
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        align-items: center; /* 子要素を中央配置 */
+    }
+    
+    .footer-company {
+        margin-bottom: 15px;
+        text-align: center;
+        width: 100%; /* 幅を100%に */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 中央配置を確実に */
+        justify-content: center;
+    }
+    
+    /* ロゴの確実な中央配置 */
+    .footer-logo {
+        max-width: 120px;
+        margin: 0 auto 10px;
+        display: block;
+    }
+    
+    /* ロゴがテキストの場合の対応 */
+    .footer-company .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important; /* 中央揃えを強制 */
+        justify-content: center !important;
+        margin: 0 auto 10px; /* 中央配置 */
+        text-align: center !important;
+        width: 100%;
+    }
+    
+    .footer-company .logo-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: white !important;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        text-align: center !important; /* 中央揃えを強制 */
+        margin: 0 auto; /* 中央配置 */
+    }
+    
+    .footer-company .logo-tagline {
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: -1px;
+        line-height: 1;
+        text-align: center !important; /* 中央揃えを強制 */
+        margin-left: auto; /* 中央配置 */
+        margin-right: auto; /* 中央配置 */
+    }
+    
+    .footer-company p {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.8) !important;
+        margin: 0 auto; /* 中央配置 */
+        line-height: 1.3;
+        text-align: center !important; /* 中央揃えを強制 */
+        width: 100%;
+    }
+    
+    .footer-links {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 15px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    
+    .footer-column {
+        flex: 1;
+        min-width: 100px;
+        margin-bottom: 10px;
+        text-align: center; /* 各カラムも中央揃え */
+    }
+    
+    .footer-column h4 {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        color: white !important;
+        font-weight: 600;
+        text-align: center; /* 見出しも中央揃え */
+    }
+    
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center; /* リストも中央揃え */
+    }
+    
+    .footer-column li {
+        margin-bottom: 4px;
+    }
+    
+    .footer-column a {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-decoration: none;
+        line-height: 1.3;
+        transition: color 0.2s ease;
+        display: inline-block; /* インラインブロックで中央配置 */
+    }
+    
+    .footer-column a:hover {
+        color: white !important;
+    }
+    
+    .footer-bottom {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.6) !important;
+        margin: 0 auto; /* 中央配置 */
+        text-align: center !important;
+    }
+}
+
+/* より小さなスマホ用 */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .mobile-menu {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .tab-button {
+        min-width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .performance-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .client-industries {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-trust-indicators {
+        gap: 5px; /* さらに間隔を狭める */
+    }
+    
+    .trust-item {
+        padding: 0 2px;
+    }
+    
+    .trust-item p {
+        font-size: 0.75rem; /* さらに小さく */
+    }
+    
+    .trust-item strong {
+        font-size: 0.85rem;
+    }
+
+    .process-steps {
+        gap: 12px; /* さらに縮小 */
+    }
+    
+    .process-step {
+        max-width: 280px; /* 最大幅を少し縮小 */
+        min-height: 130px; /* 最小高さを少し縮小 */
+        padding: 18px; /* パディングを少し縮小 */
+    }
+    
+    .process-step h3 {
+        font-size: 1.1rem;
+    }
+    
+    .process-step p {
+        font-size: 0.85rem;
+    }
+    
+    .process-arrow {
+        margin: 6px 0;
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 25px 0 15px;
+    }
+    
+    .footer-company .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .footer-company .logo-tagline {
+        font-size: 0.6rem;
+    }
+    
+    .footer-content {
+        gap: 15px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .footer-column {
+        margin-bottom: 8px;
+    }
+    
+    .footer-column h4 {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+    
+    .footer-column a {
+        font-size: 0.75rem;
+    }
+    
+    .footer-bottom {
+        margin-top: 15px;
+        padding-top: 12px;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.7rem;
+    }
+}
