@@ -1818,3 +1818,237 @@
 .timer-number.animate {
     animation: pulseNumber 2s ease-in-out infinite;
 }
+
+/* ウィンドウの上に表示する固定タイトル */
+.article-fixed-title {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0;
+    background: transparent;
+}
+
+.article-fixed-title h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    background: transparent;
+    padding: 0;
+    line-height: 1.4;
+}
+
+/* 業界記事表示ウィンドウ */
+.industry-article-window {
+    margin-top: 0; /* 上のマージンを削除 */
+    background: white;
+    border: 3px solid #3b82f6;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* 青のヘッダー - 業界別タイトル */
+.article-header {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.article-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.article-content {
+    padding: 30px;
+    background: white;
+}
+
+.article-content p {
+    line-height: 1.8;
+    color: #374151;
+    margin: 0;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* 業界アイテムのアクティブ状態 - ホバー時と同じスタイルに変更 */
+.industry-item.active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #f8fafc;
+    color: inherit; /* 元の色を維持 */
+}
+
+.industry-item.active .industry-icon svg {
+    fill: currentColor; /* 元の色を維持 */
+}
+
+.industry-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.industry-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #f8fafc;
+}
+
+/* アクティブ状態とホバー状態を統一 */
+.industry-item.active,
+.industry-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #f8fafc;
+}
+
+/* Google Guidelines Section */
+.google-guidelines {
+    background: #ffffff;
+    color: #000000;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.google-guidelines .container {
+    position: relative;
+    z-index: 2;
+}
+
+.guidelines-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.guidelines-header .section-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.guidelines-description {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.guidelines-description p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: #374151;
+}
+
+.guidelines-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.guidelines-text {
+    flex: 1;
+}
+
+.guidelines-text h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.guidelines-quote {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 4px solid #22d3ee;
+    margin-top: 20px;
+}
+
+.guidelines-quote p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+}
+
+.guidelines-quote p:last-child {
+    margin-bottom: 0;
+}
+
+.guidelines-image {
+    flex: 0 0 300px;
+}
+
+.guidelines-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.guidelines-source {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.guidelines-source p {
+    font-size: 14px;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .google-guidelines {
+        padding: 60px 0;
+    }
+    
+    .guidelines-header .section-title {
+        font-size: 36px;
+    }
+    
+    .guidelines-description p {
+        font-size: 16px;
+    }
+    
+    .guidelines-content {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    
+    .guidelines-text h3 {
+        font-size: 24px;
+    }
+    
+    .guidelines-quote {
+        padding: 20px;
+    }
+    
+    .guidelines-quote p {
+        font-size: 14px;
+    }
+    
+    .guidelines-image {
+        flex: none;
+        width: 100%;
+    }
+    
+    .guidelines-image img {
+        height: 300px;
+    }
+}
