@@ -737,3 +737,143 @@
         font-size: 0.7rem;
     }
 }
+/* お客様の声カルーセル（修正版） - responsive.css の最後に追加 */
+.voice-carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    overflow: visible;
+    border-radius: 16px;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.carousel-slide {
+    flex-shrink: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* スライド幅の設定（次のスライドが見えるように） */
+@media (max-width: 360px) {
+    .carousel-slide {
+        width: 85%;
+        min-width: 85%;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 480px) {
+    .carousel-slide {
+        width: 82%;
+        min-width: 82%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .carousel-slide {
+        width: 80%;
+        min-width: 80%;
+    }
+}
+
+.carousel-slide .voice-card-large {
+    margin: 0;
+    height: auto;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* ナビゲーションボタンを完全に削除 */
+.carousel-nav {
+    display: none !important;
+}
+
+.carousel-btn {
+    display: none !important;
+}
+
+/* インジケーターのスタイル調整 */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #2563eb;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background: #6b7280;
+}
+
+/* モバイル・タブレット用カルーセル表示制御 */
+@media (max-width: 768px) {
+    .carousel-slide {
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slide .voice-card-large {
+        min-height: 450px;
+        padding: 20px 15px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .carousel-slide {
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 360px) {
+    .carousel-slide .voice-card-large {
+        min-height: 400px;
+        padding: 15px 10px;
+    }
+    
+    .carousel-slide {
+        padding: 0 5px;
+    }
+}
+/* ナビゲーションボタンを完全に非表示 */
+.carousel-nav,
+.carousel-btn,
+.carousel-btn.prev,
+.carousel-btn.next,
+#voiceCarouselPrev,
+#voiceCarouselNext {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
