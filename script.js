@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <nav class="mobile-menu-nav">
                         <ul>
                             <li><a href="#service">サービス内容</a></li>
-                            <li><a href="#case">導入事例</a></li>
+                            <li><a href="#case">お客様の声</a></li>
                             <li><a href="#comparison">他社比較</a></li>
                             <li><a href="#price">料金プラン</a></li>
                             <li><a href="#faq">よくある質問</a></li>
@@ -99,6 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(function() {
             initMobileMenu();
+            // カルーセルも再初期化
+            initVoiceCarousel();
         }, 250);
     });
     
@@ -243,8 +245,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    
-
     
     // 料金プランボタンの処理
     const planButtons = document.querySelectorAll('.price-button');
@@ -402,41 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // 初期化完了
-    console.log('SUGUKAKU LP initialized successfully');
-});
-
-// パフォーマンス最適化
-window.addEventListener('load', function() {
-    // 遅延読み込み画像の処理
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    img.classList.add('loaded');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
-    } else {
-        // フォールバック
-        lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-            img.classList.remove('lazy');
-            img.classList.add('loaded');
-        });
-    }
-});
-
-// 業界記事表示機能
-document.addEventListener('DOMContentLoaded', function() {
+    // 業界記事表示機能
     const industryItems = document.querySelectorAll('.industry-item[data-industry]');
     const articleTitle = document.getElementById('articleTitle');
     const articleBody = document.getElementById('articleBody');
@@ -501,5 +467,206 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // お客様の声カルーセル初期化
+    initVoiceCarousel();
+    
+    // 初期化完了
+    console.log('SUGUKAKU LP initialized successfully');
 });
 
+// お客様の声カルーセル機能（修正版）
+function initVoiceCarousel() {
+    // 既存のイベントリスナーをクリア
+    const existingCarousel = window.voiceCarouselInstance;
+    if (existingCarousel) {
+        existingCarousel.destroy();
+    }
+    
+    const track = document.getElementById('voiceCarouselTrack');
+    const indicatorsContainer = document.getElementById('voiceCarouselIndicators');
+    const desktopGrid = document.querySelector('.voice-cards-grid.desktop-only');
+    const mobileCarousel = document.querySelector('.voice-carousel.mobile-tablet-only');
+    
+    // 画面サイズに応じて表示を切り替える関数
+    function toggleDisplayBasedOnScreenSize() {
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            if (desktopGrid) {
+                desktopGrid.style.display = 'none';
+            }
+            if (mobileCarousel) {
+                mobileCarousel.style.display = 'block';
+            }
+        } else {
+            if (desktopGrid) {
+                desktopGrid.style.display = 'grid';
+            }
+            if (mobileCarousel) {
+                mobileCarousel.style.display = 'none';
+            }
+        }
+    }
+    
+    // 初期表示設定
+    toggleDisplayBasedOnScreenSize();
+    
+    // カルーセルが必要な場合のみ初期化
+    if (window.innerWidth <= 768 && track && indicatorsContainer) {
+        const slides = track.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+        let isTransitioning = false;
+        
+        // スライド幅の計算関数
+        function getSlideWidth() {
+            const containerWidth = track.parentElement.offsetWidth;
+            const screenWidth = window.innerWidth;
+            
+            if (screenWidth <= 360) {
+                return containerWidth * 0.85;
+            } else if (screenWidth <= 480) {
+                return containerWidth * 0.82;
+            } else if (screenWidth <= 768) {
+                return containerWidth * 0.80;
+            } else {
+                return containerWidth * 0.80;
+            }
+        }
+        
+        // スライドの初期設定
+        function setupSlides() {
+            const slideWidth = getSlideWidth();
+            slides.forEach((slide) => {
+                slide.style.width = slideWidth + 'px';
+                slide.style.minWidth = slideWidth + 'px';
+                slide.style.maxWidth = slideWidth + 'px';
+            });
+        }
+        
+        // インジケーターを生成
+        function createIndicators() {
+            indicatorsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+                indicator.setAttribute('data-slide', i);
+                indicator.addEventListener('click', () => {
+                    goToSlide(i);
+                });
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+        
+        // スライドを移動
+        function goToSlide(slideIndex) {
+            if (isTransitioning || slideIndex === currentSlide || slideIndex < 0 || slideIndex >= totalSlides) {
+                return;
+            }
+            
+            isTransitioning = true;
+            currentSlide = slideIndex;
+            
+            const slideWidth = getSlideWidth();
+            const translateX = -(slideIndex * slideWidth);
+            
+            track.style.transform = `translateX(${translateX}px)`;
+            updateIndicators();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+        }
+        
+        // インジケーターを更新
+        function updateIndicators() {
+            const indicators = indicatorsContainer.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        // タッチ/スワイプ対応
+        let startX = 0;
+        let endX = 0;
+        
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+        
+        track.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    // 左スワイプ：次へ
+                    const nextIndex = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
+                    goToSlide(nextIndex);
+                } else {
+                    // 右スワイプ：前へ
+                    const prevIndex = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
+                    goToSlide(prevIndex);
+                }
+            }
+        }, { passive: true });
+        
+        // リサイズ時の再計算
+        function handleResize() {
+            setupSlides();
+            goToSlide(currentSlide);
+        }
+        
+        window.addEventListener('resize', handleResize);
+        
+        // 初期化
+        setupSlides();
+        createIndicators();
+        goToSlide(0);
+        
+        // カルーセルインスタンスを保存
+        window.voiceCarouselInstance = {
+            destroy: function() {
+                window.removeEventListener('resize', handleResize);
+            }
+        };
+    }
+    
+    // リサイズ時の処理
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(toggleDisplayBasedOnScreenSize, 100);
+    });
+}
+
+
+// パフォーマンス最適化
+window.addEventListener('load', function() {
+    // 遅延読み込み画像の処理
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // フォールバック
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            img.classList.add('loaded');
+        });
+    }
+});
