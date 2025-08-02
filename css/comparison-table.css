@@ -57,9 +57,29 @@ Header
 .comparison-table-wrapper {
     background: transparent !important;
     border: none !important;
-    overflow: hidden;
-    box-shadow: none !important;
     margin-bottom: 40px;
+    overflow-x: visible; /* PC画面ではスクロールなし */
+    overflow-y: hidden;
+    box-shadow: none !important;
+}
+
+/* スクロールバーのスタイリング */
+.comparison-table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.comparison-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.comparison-table-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.comparison-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 /*
@@ -137,6 +157,8 @@ Header
     align-items: center;
     justify-content: center;
     position: relative;
+    min-height: 60px; /* 最小高さを設定 */
+    height: 60px; /* 高さを固定 */
 }
 
 /* スグカク列を高くする */
@@ -147,8 +169,9 @@ Header
     z-index: 2;
     box-shadow: 0 3px 10px rgba(255, 149, 0, 0.2);
     border-radius: 20px 20px 0 0;
+    min-height: 80px; /* スグカク列は少し高く */
+    height: 80px; /* 高さを固定 */
 }
-
 .company-col.competitor .company-header {
     background: #6c757d;
     padding: 15px 20px;
@@ -316,128 +339,38 @@ Header
 }
 
 /*
-モバイル用カード
+モバイル用カードを完全に削除
 */
 .comparison-cards-mobile {
-    display: none;
-    flex-direction: column;
-    gap: 25px; /* カード間の隙間を追加 */
-    margin-top: 40px;
-    padding: 0 10px; /* 左右にパディングを追加 */
-}
-
-.comparison-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px; /* 下マージンを追加 */
-}
-
-.comparison-card.sugukaku-card {
-    background: #fff5e6;
-    border: 2px solid #ff9500;
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(255, 149, 0, 0.2);
-    margin-bottom: 25px; /* スグカクカードは少し大きめの下マージン */
-}
-
-.comparison-card:last-child {
-    margin-bottom: 0;
-}
-
-.card-header {
-    text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.card-header h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.sugukaku-card .card-header h3 {
-    color: #ff9500;
-}
-
-.card-header p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.card-features {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.feature-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.feature-row:last-child {
-    border-bottom: none;
-}
-
-.feature-row .label {
-    font-weight: 600;
-    color: #333;
-    font-size: 14px;
-    flex-shrink: 0;
-    width: 80px;
-}
-
-.feature-row .value {
-    font-weight: 400;
-    color: #666;
-    font-size: 14px;
-    text-align: right;
-    flex: 1;
-}
-
-.feature-row .value.highlight {
-    color: #ff6b00;
-    font-weight: 700;
-}
-
-.card-cta {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 16px;
-    background: #ff9500;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.card-cta:hover {
-    background: #ff8c00;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
+    display: none !important; /* 常に非表示 */
 }
 
 /*
 レスポンシブ対応
 */
 @media (max-width: 1024px) {
+    /* タブレットから横スクロール開始 */
+    .comparison-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     .comparison-table {
+        min-width: 900px; /* タブレットでの最小幅 */
         font-size: 14px;
+    }
+
+    /* ヘッダーの高さ固定 */
+    .company-header {
+        min-height: 55px;
+        height: 55px;
+        padding: 10px 15px;
+    }
+    
+    .company-col.sugukaku .company-header {
+        min-height: 75px;
+        height: 75px;
+        padding: 20px 15px;
     }
 
     .company-header h3 {
@@ -463,25 +396,54 @@ Header
     }
 
     .comparison-header {
-        margin-bottom: 30px; /* ヘッダーの下マージンを増加 */
+        margin-bottom: 30px;
     }
 
     .comparison-header .section-title {
         font-size: 36px;
     }
 
-    /* デスクトップ版テーブルを完全に非表示 */
+    /* テーブルラッパーは表示したまま */
     .comparison-table-wrapper {
-        display: none !important;
+        display: block !important; /* 表示を維持 */
+        margin: 0 -20px; /* 左右の余白を調整 */
+        padding: 0 20px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
     
+    .comparison-table {
+        min-width: 700px; /* モバイルでの最小幅 */
+        font-size: 14px;
+    }
 
-    /* モバイル版カードを表示 */
-    .comparison-cards-mobile {
-        display: flex;
-        flex-direction: column;
-        gap: 25px; /* カード間の隙間 */
-        margin-top: 30px;
-        padding: 0 15px; /* 左右のパディング */
+    /* ヘッダーの高さ固定 */
+    .company-header {
+        min-height: 50px;
+        height: 50px;
+        padding: 10px 10px;
+    }
+    
+    .company-col.sugukaku .company-header {
+        min-height: 70px;
+        height: 70px;
+        padding: 15px 10px;
+    }
+    
+    .company-header h3 {
+        font-size: 14px;
+    }
+    
+    /* スクロール可能であることを示すグラデーション */
+    .comparison-table-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to right, transparent, rgba(248, 250, 252, 0.8));
+        pointer-events: none;
     }
 }
 
@@ -497,27 +459,35 @@ Header
     .section-subtitle-en {
         font-size: 14px;
     }
-
-    .comparison-cards-mobile {
-        gap: 20px; /* スマホではもう少し狭く */
-        margin-top: 25px;
-        padding: 0 10px; /* スマホでは左右のパディングを少し狭く */
+    
+    .comparison-table {
+        min-width: 600px; /* スマホでの最小幅 */
+        font-size: 13px;
     }
 
-    .comparison-card {
-        padding: 20px;
-        margin-bottom: 15px; /* スマホでは下マージンを少し狭く */
+    /* ヘッダーの高さ固定（480px以下も同じ設定を維持） */
+    .company-header {
+        min-height: 50px;
+        height: 50px;
+        padding: 10px 10px;
     }
-
-    .card-header h3 {
-        font-size: 18px;
+    
+    .company-col.sugukaku .company-header {
+        min-height: 60px;
+        height: 60px;
+        padding: 15px 10px;
     }
-
-    .card-features {
-        gap: 12px;
+    
+    .company-header h3 {
+        font-size: 14px;
     }
-
-    .feature-row {
-        padding: 8px 0;
+    
+    .feature-label {
+        font-size: 13px;
+        padding: 8px 15px;
+    }
+    
+    .data-content p {
+        font-size: 13px;
     }
 }
