@@ -343,6 +343,9 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
 }
 
 .cta-section::before {
