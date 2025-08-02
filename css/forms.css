@@ -1,6 +1,6 @@
 /* Contact Section */
 .contact {
-    padding: 80px 0;
+    padding: 40px 0;
     background: var(--bg-white);
 }
 
@@ -14,7 +14,7 @@
     font-family: var(--font-display), var(--font-japanese);
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     color: var(--text-dark);
     letter-spacing: -0.02em;
 }
@@ -22,7 +22,7 @@
 .contact-info p {
     font-family: var(--font-primary), var(--font-japanese);
     color: var(--text-gray);
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     line-height: 1.8;
     font-size: 16px;
 }
@@ -30,14 +30,14 @@
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 0px;
 }
 
 .contact-item h3 {
     font-family: var(--font-primary), var(--font-japanese);
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     color: var(--text-dark);
 }
 
@@ -302,7 +302,7 @@
     .contact-wrapper,
     .download-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 20px;
     }
 }
 
