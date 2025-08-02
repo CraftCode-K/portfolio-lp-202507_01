@@ -199,7 +199,7 @@
         text-align: center;
         align-items: center;
         justify-content: center;
-        gap: 1rem; /* 要素間の間隔を縮小 */
+        gap: 0rem; /* 要素間の間隔を縮小 */
     }
     
     .hero-badge {
@@ -214,9 +214,9 @@
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 16PX;
         text-align: center;
-        margin-bottom: 0.5rem; /* 下マージンを縮小 */
+        margin-bottom: 0rem; /* 下マージンを縮小 */
     }
 
     .hero-description {
@@ -306,9 +306,9 @@
     
     /* 問題セクション */
     .problem-cards {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+        grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
     
     /* ソリューションセクション */
     .solution-content {
@@ -317,7 +317,7 @@
     }
     
     .solution-image {
-        order: -1;
+        order: 2;
         margin-bottom: 20px;
         min-height: 200px; /* 高さを確保 */
         display: flex;
@@ -325,6 +325,9 @@
         justify-content: center;
     }
 
+.solution-points {
+    order: 1; /* テキストを1番目に指定 */
+}
     .solution-points {
         display: flex;
         flex-direction: column;
@@ -399,7 +402,7 @@
     /* プロセス */
     .process-steps {
         flex-direction: column;
-        gap: 15px; /* 20px から 15px に縮小 */
+        gap: 0px; /* 20px から 15px に縮小 */
         align-items: center; /* 中央揃えを追加 */
     }
 
@@ -436,7 +439,7 @@
     .process-arrow {
         transform: rotate(90deg);
         margin: 8px 0; /* 10px から 8px に縮小 */
-        font-size: 1.2rem; /* 矢印のサイズを調整 */
+        font-size: 3.2rem; /* 矢印のサイズを調整 */
     }
     
     /* フォーム */
@@ -477,7 +480,7 @@
     }
     
     .container {
-        padding: 0 15px;
+        padding: 20px 15px 0px;
     }
     
     /* クライアントロゴ */
@@ -487,7 +490,7 @@
     }
     
     .industry-item {
-        padding: 10px;
+        padding: 5px;
         font-size: 0.9rem;
     }
 
@@ -810,6 +813,7 @@
     justify-content: center;
     gap: 8px;
     margin-top: 20px;
+    margin-bottom:10px;
     padding: 0 20px;
 }
 
@@ -876,4 +880,813 @@
     opacity: 0 !important;
     position: absolute !important;
     left: -9999px !important;
+}
+/* ================================
+   お客様の声カルーセル機能
+   ================================ */
+
+/* デスクトップ・モバイル表示切り替え */
+.desktop-only {
+    display: block;
+}
+
+.mobile-tablet-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+    
+    .mobile-tablet-only {
+        display: block;
+    }
+}
+
+/* カルーセル基本スタイル */
+.voice-carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    overflow: hidden;
+    border-radius: 16px;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.carousel-slide {
+    flex-shrink: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* スライド幅の設定（次のスライドが見えるように） */
+@media (max-width: 480px) {
+    .carousel-slide {
+        width: 85%;
+        min-width: 85%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .carousel-slide {
+        width: 80%;
+        min-width: 80%;
+    }
+}
+
+.carousel-slide .voice-card-large {
+    margin: 0;
+    height: auto;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* インジケーターのスタイル（表示のみ） */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d1d5db;
+    transition: all 0.3s ease;
+    pointer-events: none; /* クリック無効化 */
+}
+
+.indicator.active {
+    background: #2563eb;
+    transform: scale(1.2);
+}
+
+/* モバイル・タブレット用カルーセル表示制御 */
+@media (max-width: 768px) {
+    .carousel-slide {
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slide .voice-card-large {
+        min-height: 450px;
+        padding: 20px 15px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .carousel-slide {
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 360px) {
+    .carousel-slide .voice-card-large {
+        min-height: 400px;
+        padding: 15px 10px;
+    }
+    
+    .carousel-slide {
+        padding: 0 5px;
+    }
+}
+/* ================================
+   料金プランカルーセル機能（完全修正版）
+   ================================ */
+
+/* デスクトップ・タブレット表示切り替え（修正） */
+.desktop-only {
+    display: block;
+}
+
+.mobile-tablet-only {
+    display: none;
+}
+
+/* モバイルのみ（768px以下）でカルーセル表示 */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+    
+    .mobile-tablet-only {
+        display: block;
+    }
+}
+
+/* 料金プランカルーセル基本スタイル */
+.price-carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto 50px;
+    overflow: hidden;
+    padding: 0 60px; /* 矢印用のスペースを確保 */
+}
+
+/* ナビゲーション矢印（表示） */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: #6b7280;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: #9ca3af;
+    color: #374151;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-nav.prev {
+    left: 10px;
+}
+
+.carousel-nav.next {
+    right: 10px;
+}
+
+.price-carousel .carousel-container {
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+}
+
+.price-carousel .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.price-carousel .carousel-slide {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+}
+
+.price-carousel .carousel-slide .price-card {
+    max-width: 300px;
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    min-height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 20px;
+}
+
+/* モバイル用の人気プランバッジ調整 */
+.price-carousel .price-card.featured {
+    transform: none;
+    z-index: 1;
+}
+
+.price-carousel .price-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-orange);
+    color: var(--bg-white);
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-family: var(--font-primary), var(--font-japanese);
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+}
+
+/* シンプルなインジケーター（小さく、グレー） */
+.carousel-indicators.simple {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 25px;
+    margin-bottom: 0;
+    padding: 0 20px;
+}
+
+.carousel-indicators.simple .indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators.simple .indicator.active {
+    background: #6b7280;
+    transform: scale(1.3);
+}
+
+.carousel-indicators.simple .indicator:hover {
+    background: #9ca3af;
+}
+
+/* モバイル用調整 */
+@media (max-width: 768px) {
+    .price-carousel {
+        padding: 0 50px;
+    }
+    
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-nav.prev {
+        left: 5px;
+    }
+    
+    .carousel-nav.next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-carousel {
+        padding: 0 45px;
+    }
+    
+    .price-carousel .carousel-slide .price-card {
+        min-height: 550px;
+        padding: 25px 20px;
+        max-width: 280px;
+        width: 95%;
+    }
+    
+    .carousel-indicators.simple .indicator {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .price-carousel .price-badge {
+        top: -12px;
+        padding: 6px 18px;
+        font-size: 11px;
+    }
+    
+    .carousel-nav {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 360px) {
+    .price-carousel {
+        padding: 0 40px;
+    }
+    
+    .price-carousel .carousel-slide .price-card {
+        min-height: 520px;
+        padding: 20px 15px;
+        max-width: 260px;
+    }
+    
+    .price-carousel .price-badge {
+        top: -10px;
+        padding: 5px 16px;
+        font-size: 10px;
+    }
+    
+    .carousel-nav {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .carousel-nav.prev {
+        left: 4px;
+    }
+    
+    .carousel-nav.next {
+        right: 4px;
+    }
+}
+
+/* 料金プランのfeatures調整（モバイル用） */
+@media (max-width: 768px) {
+    .price-carousel .price-features {
+        margin: 20px 0 !important;
+    }
+    
+    .price-carousel .price-features li {
+        padding: 10px 0 10px 35px !important;
+        margin-bottom: 5px !important;
+        min-height: 32px !important;
+        font-size: 14px !important;
+    }
+    
+    .price-carousel .price-features li::before {
+        top: 10px !important;
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-carousel .price-features li {
+        padding: 8px 0 8px 30px !important;
+        font-size: 13px !important;
+        min-height: 28px !important;
+    }
+    
+    .price-carousel .price-features li::before {
+        top: 8px !important;
+        width: 18px !important;
+        height: 18px !important;
+        font-size: 12px !important;
+    }
+}
+/* ================================
+   料金プラン デスクトップ・タブレット版修正
+   ================================ */
+
+/* 既存の料金プランスタイルを上書き */
+@media (min-width: 769px) {
+    .price-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        align-items: stretch;
+    }
+
+    .price-card {
+        background: #f8f9fa; /* 薄いグレー背景 */
+        border-radius: 2510:59
+        padding: 25px 20px; /* 余白を狭く */
+        position: relative;
+        transition: all 0.3s ease;
+        border: none; /* 淵なしデザイン */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 520px; /* 高さを統一 */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transform: none; /* すべて同じ大きさ */
+    }
+
+    .price-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 人気プラン（スタンダード）の強調 */
+    .price-card.featured {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: var(--bg-white);
+        transform: none; /* 同じ大きさに */
+        border-color: #2563eb;
+        box-shadow: 0 8px 30px rgba(37, 99, 235, 0.2);
+        z-index: 1;
+    }
+
+    .price-card.featured:hover {
+        transform: translateY(-3px); /* 同じホバー効果 */
+        box-shadow: 0 12px 35px rgba(37, 99, 235, 0.3);
+    }
+
+    .price-badge {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent-orange);
+        color: var(--bg-white);
+        padding: 8px 25px;
+        border-radius: 50px;
+        font-family: var(--font-primary), var(--font-japanese);
+        font-size: 14px;
+        font-weight: 700;
+        box-shadow: 0 2px 10px rgba(255, 149, 0, 0.3);
+    }
+
+    .price-header {
+        text-align: center;
+        margin-bottom: 5px; /* 余白を狭く */
+    }
+
+    .price-header h3 {
+        font-family: var(--font-display), var(--font-japanese);
+        font-size: 25px; /* サイズを小さく */
+        font-weight: 700;
+        margin-bottom: 5px;
+        letter-spacing: -0.02em;
+    }
+
+    .price-card.featured .price-header h3 {
+        color: var(--bg-white);
+    }
+
+    .price-description {
+        font-family: var(--font-primary), var(--font-japanese);
+        color: var(--text-gray);
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .price-card.featured .price-description {
+        color: rgba(255,255,255,0.9);
+    }
+
+    .price-amount {
+        font-feature-settings: "tnum";
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+        margin-bottom: 5px; /* 余白を狭く */
+    }
+
+    .price-number {
+        font-family: var(--font-display);
+        font-size: 40px; /* サイズを小さく */
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        display: inline-block;
+    }
+
+    .price-card.featured .price-number {
+        color: var(--bg-white);
+    }
+
+    .price-unit {
+        font-family: var(--font-primary), var(--font-japanese);
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-gray);
+    }
+
+    .price-card.featured .price-unit {
+        color: rgba(255,255,255,0.9);
+    }
+
+    .price-features {
+        list-style: none;
+        margin-bottom: 20px; /* 余白を狭く */
+        flex-grow: 1;
+    }
+
+    .price-features li {
+        font-family: var(--font-primary), var(--font-japanese);
+        padding: 8px 0; /* パディングを狭く */
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 14px; /* フォントサイズを小さく */
+        position: relative;
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        min-height: 32px; /* 高さを狭く */
+    }
+
+    .price-card.featured .price-features li {
+        border-color: rgba(255,255,255,0.2);
+        color: var(--bg-white);
+    }
+
+    /* チェックマークのスタイル */
+    .price-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--primary-blue);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .price-card.featured .price-features li::before {
+        color: var(--accent-orange);
+    }
+
+    /* 利用不可の項目 */
+    .price-features li.disabled {
+        color: #9ca3af;
+        opacity: 0.7;
+    }
+
+    .price-features li.disabled::before {
+        content: "−";
+        color: #9ca3af;
+        font-size: 18px;
+    }
+
+    .price-card.featured .price-features li.disabled {
+        color: rgba(255,255,255,0.4);
+    }
+
+    .price-card.featured .price-features li.disabled::before {
+        color: rgba(255,255,255,0.4);
+    }
+
+    .price-button {
+        display: block;
+        text-align: center;
+        padding: 12px 16px; /* パディングを狭く */
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: var(--font-primary), var(--font-japanese);
+        font-weight: 700;
+        font-size: 14px; /* フォントサイズを小さく */
+        transition: all 0.3s ease;
+        background: var(--primary-blue);
+        color: var(--bg-white);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .price-button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    }
+
+    .price-button.featured {
+        background: var(--accent-orange);
+        color: var(--bg-white);
+    }
+
+    .price-button.featured:hover {
+        background: #ff8c00;
+        box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+    }
+
+    .price-note {
+        text-align: center;
+        margin-top: 30px; /* 余白を狭く */
+        color: var(--text-gray);
+        font-family: var(--font-primary), var(--font-japanese);
+        font-size: 13px;
+    }
+}
+
+/* タブレット用調整 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .price-cards {
+        gap: 15px;
+        max-width: 1000px;
+    }
+    
+    .price-card {
+        padding: 20px 15px;
+        min-height: 480px;
+    }
+    
+    .price-header h3 {
+        font-size: 22px;
+    }
+    
+    .price-number {
+        font-size: 36px;
+    }
+}
+/* 料金プラン カルーセル改良 (ピークアブー表示) */
+@media (max-width: 768px) {
+    .price-carousel {
+        position: relative;
+        overflow: hidden; /* コンテナからはみ出したスライドを隠す */
+        padding: 20px 0;
+        min-height: 600px;
+    }
+
+    .price-carousel .carousel-container {
+        overflow: visible; /* トラック自体ははみ出せるようにする */
+    }
+
+    .price-carousel .carousel-track {
+        display: flex;
+        align-items: center; /* カードの縦位置を中央に揃える */
+        /* transitionはJS側で設定されているものを活かすか、ここで定義 */
+        transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .price-carousel .carousel-slide {
+        flex: 0 0 70%; /* 各スライドの幅をコンテナの70%に */
+        min-width: 70%;
+        padding: 0 10px; /* スライド間の余白 */
+        box-sizing: border-box;
+        
+        /* アクティブでないスライドのスタイル */
+        transform: scale(0.85);
+        opacity: 0.6;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* アクティブなスライドのスタイル */
+    .price-carousel .carousel-slide.active {
+        transform: scale(1); /* 元のサイズに戻す */
+        opacity: 1; /* 不透明にする */
+    }
+    
+    /* 既存のナビゲーション矢印は不要なため非表示に */
+    .price-carousel .carousel-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-carousel .carousel-slide {
+        flex-basis: 75%; /* スマホではもう少し大きく表示 */
+        min-width: 75%;
+    }
+}
+
+@media (max-width: 768px) {
+  /* 料金プランカルーセル内のすべてのカードにグレーの枠線を設定 */
+  .price-carousel .carousel-slide .price-card {
+    border: 2px solid #cccccc;
+  }
+
+  /* アクティブ（中央）なカードの枠線を調整 */
+  .price-carousel .carousel-slide.active .price-card {
+    /* 通常プランの場合は枠線を透明に */
+    border-color: transparent;
+  }
+
+  /* アクティブ（中央）かつ人気No.1プランの場合は、プラン固有の青い枠線を維持 */
+  .price-carousel .carousel-slide.active .price-card.featured {
+    border-color: var(--primary-blue);
+  }
+}
+/* responsive.css の末尾に追記 */
+
+/* ヒーローセクションの3要素を全デバイスで横並びにするためのスタイル */
+@media (max-width: 768px) {
+  .hero-features {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px; /* モバイル用の隙間 */
+    margin-bottom: 30px;
+  }
+
+  .hero-feature-item {
+    flex-direction: column; /* アイコンとテキストは縦に並べる */
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    flex: 1; /* 3つの要素が均等に幅を持つように */
+    min-width: 0; /* 幅が狭くなった時に縮小できるように */
+  }
+
+  .hero-feature-item .feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+  }
+  
+  .hero-feature-item .feature-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-feature-item h3 {
+    font-size: 14px; /* モバイルでのフォントサイズを調整 */
+    line-height: 1.3;
+    margin: 0;
+  }
+}
+/* responsive.css の末尾に追記 */
+
+/* ヒーローセクションの信頼性指標を全デバイスで横並びにするためのスタイル */
+@media (max-width: 768px) {
+  .hero-trust-indicators {
+    display: flex;
+    flex-direction: row; /* 常に横並びにする */
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* モバイル用の隙間 */
+    flex-wrap: nowrap; /* 折り返しを防ぐ */
+    margin-top: 30px;
+    padding: 0 5px; /* 画面端の余白を確保 */
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: row; /* アイコンとテキストも常に横並び */
+    align-items: center;
+    gap: 8px; /* アイコンとテキスト間の隙間 */
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+  }
+  
+  .trust-item .trust-icon {
+    width: 28px; /* アイコンを縮小 */
+    height: 28px;
+    flex-shrink: 0;
+  }
+  
+  .trust-item .trust-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .trust-item p {
+    font-size: 11px; /* テキストを縮小 */
+    line-height: 1.3;
+    text-align: left;
+    margin: 0;
+  }
+
+  .trust-item strong {
+    font-size: 13px; /* 強調テキストを縮小 */
+    display: block;
+    color: var(--accent-yellow);
+  }
+}
+/* 767px以下の全画面で「スグカクが解決します」セクションの表示順を「テキストが上」に統一 */
+@media (max-width: 767px) {
+  .solution-points {
+    order: 1;
+  }
+  .solution-image {
+    order: 2;
+  }
 }
