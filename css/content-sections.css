@@ -1,6 +1,6 @@
 /* Client Logos Section */
 .client-logos {
-    padding: 60px 0;
+    padding: 0;
     background: #f8fafc;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
@@ -1118,9 +1118,9 @@
 /* Tablet (768px-1023px) */
 @media (max-width: 1023px) {
     .voice-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
     
     .voice-column {
         gap: 25px;
@@ -1185,6 +1185,13 @@
     }
 }
 
+@media (min-width: 769px) {
+  .voice-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 /* Mobile Large (480px-767px) */
 @media (max-width: 767px) {
     .client-title {
@@ -1204,12 +1211,31 @@
     }
 
     .client-industries {
-        gap: 20px;
-    }
+    padding: 30px 10px;
+    gap: 8px; /* ボタン間の隙間を狭める */
+    justify-content: center;
+}
+
+.industry-item {
+    padding: 6px 12px; /* ボタン内の余白を調整 */
+    gap: 6px;
+    font-size: 13px; /* 文字サイズを調整 */
+}
+
+.industry-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.industry-icon svg {
+    width: 16px;
+    height: 16px;
+}
 
     .problem-cards {
-        grid-template-columns: 1fr;
-    }
+        grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 
     .solution-content {
         flex-direction: column;
@@ -1246,10 +1272,11 @@
         font-size: 0.9rem;
     }
 
-    .tab-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
+   .tab-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 
     .tab-inner {
         padding: 40px 30px;
@@ -1390,7 +1417,7 @@
     .solution,
     .service,
     .customer-voice {
-        padding: 60px 0;
+        padding: 0;
     }
 
     .section-title {
@@ -2053,485 +2080,3 @@
     }
 }
 
-/* カルーセル用スタイル */
-.desktop-only {
-    display: block;
-}
-
-.mobile-tablet-only {
-    display: none;
-}
-
-.voice-carousel {
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.carousel-container {
-    overflow: hidden;
-    border-radius: 16px;
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    will-change: transform;
-}
-
-.carousel-slide {
-    min-width: 100%;
-    flex-shrink: 0;
-    padding: 0 10px;
-    box-sizing: border-box;
-}
-
-.carousel-slide .voice-card-large {
-    margin: 0;
-    height: auto;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* カルーセルナビゲーション */
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.carousel-btn {
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    pointer-events: all;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    color: #333;
-}
-
-.carousel-btn:hover {
-    background: white;
-    transform: scale(1.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.carousel-btn:active {
-    transform: scale(0.95);
-}
-
-.carousel-btn.prev {
-    left: 10px;
-}
-
-.carousel-btn.next {
-    right: 10px;
-}
-
-/* インジケーター */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #d1d5db;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.indicator.active {
-    background: #2563eb;
-    transform: scale(1.2);
-}
-
-.indicator:hover {
-    background: #6b7280;
-}
-
-/* タブレット・スマホでの表示切り替え */
-@media (max-width: 768px) {
-    .desktop-only {
-        display: none;
-    }
-    
-    .mobile-tablet-only {
-        display: block;
-    }
-    
-    .carousel-slide {
-        padding: 0 5px;
-    }
-    
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .carousel-btn.prev {
-        left: 5px;
-    }
-    
-    .carousel-btn.next {
-        right: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    .carousel-slide .voice-card-large {
-        min-height: 450px;
-        padding: 20px 15px;
-    }
-    
-    .carousel-btn {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .carousel-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .indicator {
-        width: 10px;
-        height: 10px;
-    }
-}
-/* カルーセル用スタイル - 表示切り替えの改善 */
-.desktop-only {
-    display: block;
-}
-
-.mobile-tablet-only {
-    display: none;
-}
-
-/* タブレット・スマホでの表示切り替え */
-@media (max-width: 768px) {
-    /* デスクトップ版のお客様の声カードを完全に非表示 */
-    .desktop-only {
-        display: none !important;
-    }
-    
-    /* モバイル・タブレット版カルーセルを表示 */
-    .mobile-tablet-only {
-        display: block !important;
-    }
-    
-    /* 念のため、デスクトップ版の各要素も個別に非表示 */
-    .voice-cards-grid.desktop-only,
-    .voice-cards-grid.desktop-only .voice-column,
-    .voice-cards-grid.desktop-only .voice-card-large {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        overflow: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* カルーセルのスタイル調整 */
-    .carousel-slide {
-        padding: 0 5px;
-    }
-    
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .carousel-btn.prev {
-        left: 5px;
-    }
-    
-    .carousel-btn.next {
-        right: 5px;
-    }
-}
-
-/* より小さなスマホでの調整 */
-@media (max-width: 480px) {
-    /* デスクトップ版を確実に非表示 */
-    .desktop-only,
-    .voice-cards-grid.desktop-only {
-        display: none !important;
-    }
-    
-    /* カルーセルの調整 */
-    .carousel-slide .voice-card-large {
-        min-height: 450px;
-        padding: 20px 15px;
-    }
-    
-    .carousel-btn {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .carousel-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .indicator {
-        width: 10px;
-        height: 10px;
-    }
-}
-
-/* 360px以下の極小スマホでの調整 */
-@media (max-width: 360px) {
-    .desktop-only {
-        display: none !important;
-    }
-    
-    .carousel-slide .voice-card-large {
-        min-height: 400px;
-        padding: 15px 10px;
-    }
-}
-/* お客様の声セクション - デスクトップ・タブレット用2カラム表示 */
-
-/* デスクトップ用（1024px以上） - 2カラム表示 */
-@media (min-width: 1024px) {
-    .voice-cards-grid.desktop-only {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        margin-top: 40px;
-    }
-    
-    .voice-column {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
-    
-    .voice-card-large {
-        background: white;
-        border-radius: 16px;
-        padding: 25px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border: 1px solid #e5e7eb;
-        width: 100%;
-        box-sizing: border-box;
-        height: auto;
-        min-height: 500px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-}
-
-/* タブレット用（768px-1023px） - 2カラム表示 */
-@media (min-width: 769px) and (max-width: 1023px) {
-    .voice-cards-grid.desktop-only {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-top: 40px;
-    }
-    
-    .voice-column {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .voice-card-large {
-        background: white;
-        border-radius: 16px;
-        padding: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border: 1px solid #e5e7eb;
-        width: 100%;
-        box-sizing: border-box;
-        height: auto;
-        min-height: 450px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    
-    /* タブレットでのカード内容調整 */
-    .voice-info h3 {
-        font-size: 18px;
-    }
-    
-    .voice-info p {
-        font-size: 12px;
-    }
-    
-    .voice-result-value {
-        font-size: 16px;
-    }
-    
-    .voice-comment {
-        font-size: 13px;
-        padding: 14px;
-    }
-    
-    .performance-cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-    
-    .performance-card {
-        padding: 10px 6px;
-    }
-    
-    .performance-value {
-        font-size: 14px;
-    }
-    
-    .performance-label {
-        font-size: 9px;
-    }
-}
-
-/* 小さなタブレット用（769px-900px） - より詳細な調整 */
-@media (min-width: 769px) and (max-width: 900px) {
-    .voice-cards-grid.desktop-only {
-        gap: 15px;
-    }
-    
-    .voice-card-large {
-        padding: 18px;
-        min-height: 420px;
-    }
-    
-    .voice-results {
-        gap: 10px;
-        margin-bottom: 15px;
-    }
-    
-    .voice-result-item {
-        padding: 6px 4px;
-    }
-    
-    .voice-result-label {
-        font-size: 10px;
-    }
-    
-    .voice-result-value {
-        font-size: 15px;
-    }
-    
-    .voice-comment {
-        font-size: 12px;
-        padding: 12px;
-        margin-bottom: 15px;
-    }
-    
-    .performance-graph img {
-        max-height: 250px;
-    }
-}
-
-/* カードの均等な高さ調整 */
-@media (min-width: 769px) {
-    .voice-column {
-        align-items: stretch;
-    }
-    
-    .voice-card-large {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .voice-performance {
-        margin-top: auto;
-        padding-top: 15px;
-    }
-    
-    .voice-header {
-        margin-bottom: 15px;
-        flex-shrink: 0;
-    }
-    
-    .voice-results {
-        flex-shrink: 0;
-        margin-bottom: 15px;
-    }
-    
-    .voice-comment {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-}
-
-/* モバイル（768px以下）では従来通りカルーセル表示 */
-@media (max-width: 768px) {
-    .desktop-only {
-        display: none !important;
-    }
-    
-    .mobile-tablet-only {
-        display: block !important;
-    }
-}
-
-/* ホバー効果の調整 */
-@media (min-width: 769px) {
-    .voice-card-large:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        border-color: #2563eb;
-        transition: all 0.3s ease;
-    }
-}
-
-/* カードの内容が溢れないように調整 */
-@media (min-width: 769px) {
-    .voice-card-large {
-        overflow: hidden;
-    }
-    
-    .voice-info h3 {
-        line-height: 1.3;
-        margin-bottom: 6px;
-        word-wrap: break-word;
-    }
-    
-    .voice-info p {
-        line-height: 1.4;
-        word-wrap: break-word;
-    }
-    
-    .voice-comment {
-        line-height: 1.6;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    .performance-graph img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        border-radius: 8px;
-    }
-}
