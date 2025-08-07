@@ -1126,7 +1126,7 @@
 
 .price-carousel .price-badge {
     position: absolute;
-    top: -15px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
     background: var(--accent-orange);
@@ -1334,12 +1334,12 @@
 
     .price-badge {
         position: absolute;
-        top: -20px;
+        top: -25px;
         left: 50%;
         transform: translateX(-50%);
         background: var(--accent-orange);
         color: var(--bg-white);
-        padding: 8px 25px;
+        padding: 8px 20px;
         border-radius: 50px;
         font-family: var(--font-primary), var(--font-japanese);
         font-size: 14px;
@@ -1546,8 +1546,8 @@
     }
 
     .price-carousel .carousel-slide {
-        flex: 0 0 70%; /* 各スライドの幅をコンテナの70%に */
-        min-width: 70%;
+        flex: 0 0 90%; /* 各スライドの幅をコンテナの70%に */
+        min-width: 90%;
         padding: 0 10px; /* スライド間の余白 */
         box-sizing: border-box;
         
@@ -1573,8 +1573,8 @@
 
 @media (max-width: 480px) {
     .price-carousel .carousel-slide {
-        flex-basis: 75%; /* スマホではもう少し大きく表示 */
-        min-width: 75%;
+        flex-basis: 90%; /* スマホではもう少し大きく表示 */
+        min-width: 90%;
     }
 }
 
@@ -1587,7 +1587,7 @@
   /* アクティブ（中央）なカードの枠線を調整 */
   .price-carousel .carousel-slide.active .price-card {
     /* 通常プランの場合は枠線を透明に */
-    border-color: transparent;
+    border-color: #e5e5e5;
   }
 
   /* アクティブ（中央）かつ人気No.1プランの場合は、プラン固有の青い枠線を維持 */
@@ -1595,7 +1595,12 @@
     border-color: var(--primary-blue);
   }
 }
-/* responsive.css の末尾に追記 */
+/* 料金プランセクションのタイトル下の余白をモバイルで調整 */
+@media (max-width: 768px) {
+  .price .section-title {
+    margin-bottom: 20px;
+  }
+}
 
 /* ヒーローセクションの3要素を全デバイスで横並びにするためのスタイル */
 @media (max-width: 768px) {
@@ -1632,7 +1637,6 @@
     margin: 0;
   }
 }
-/* responsive.css の末尾に追記 */
 
 /* ヒーローセクションの信頼性指標を全デバイスで横並びにするためのスタイル */
 @media (max-width: 768px) {
@@ -1689,4 +1693,132 @@
   .solution-image {
     order: 2;
   }
+}
+/* フッター部分：モバイルメニューを強制的に非表示 */
+#mobileMenu {
+    display: none !important;
+}
+
+#mobileMenuOverlay {
+    display: none !important;
+}
+/* 768px以下のフッターデザイン統一 */
+@media (max-width: 768px) {
+    footer {
+        background: #2563eb !important;
+        color: white !important;
+        padding: 40px 0 20px;
+        text-align: center;
+    }
+    
+    .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    .footer-company {
+        order: 1;
+        text-align: center !important;
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+    
+    .footer-company .logo,
+    .footer-logo {
+        margin: 0 auto 15px !important;
+        display: block !important;
+        text-align: center !important;
+    }
+    
+    .footer-company p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-align: center !important;
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    .footer-links {
+        order: 2;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+        width: 100% !important;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .footer-column {
+        text-align: center !important;
+    }
+    
+    .footer-column h4 {
+        font-size: 14px !important;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: white !important;
+        text-align: center !important;
+    }
+    
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center !important;
+    }
+    
+    .footer-column li {
+        margin-bottom: 8px;
+    }
+    
+    .footer-column a {
+        font-size: 13px !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-decoration: none;
+        line-height: 1.4;
+    }
+    
+    .footer-column a:hover {
+        color: white !important;
+    }
+    
+    .footer-bottom {
+        order: 3;
+        margin-top: 30px !important;
+        padding-top: 20px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .footer-bottom p {
+        font-size: 12px !important;
+        color: rgba(255, 255, 255, 0.6) !important;
+        text-align: center !important;
+        margin: 0;
+    }
+}
+
+/* 480px以下でさらに調整 */
+@media (max-width: 480px) {
+    .footer-links {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+    }
+    
+    .footer-column h4 {
+        font-size: 13px !important;
+        margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+        font-size: 12px !important;
+    }
+    
+    .footer-column li {
+        margin-bottom: 6px;
+    }
 }
