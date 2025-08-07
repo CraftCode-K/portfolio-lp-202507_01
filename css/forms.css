@@ -14,7 +14,7 @@
     font-family: var(--font-display), var(--font-japanese);
     font-size: 36px;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: var(--text-dark);
     letter-spacing: -0.02em;
 }
@@ -22,7 +22,7 @@
 .contact-info p {
     font-family: var(--font-primary), var(--font-japanese);
     color: var(--text-gray);
-    margin-bottom: 10px;
+    margin-bottom: 17px;
     line-height: 1.8;
     font-size: 16px;
 }
