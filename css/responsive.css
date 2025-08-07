@@ -93,6 +93,18 @@
         padding: 8px;
         z-index: 1001;
     }
+section {
+        padding: 60px 0 !important;  /* 上下60pxに統一 */
+    }
+    
+    /* 特定セクションの調整 */
+    .hero {
+        padding: 100px 0 60px !important;  /* ヘッダー分を考慮 */
+    }
+    .client-logos{
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
     
     /* モバイルメニューオーバーレイ */
     .mobile-menu-overlay {
